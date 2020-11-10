@@ -3,10 +3,11 @@ package com.example.demo.validator;
 import com.example.demo.model.User;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
-
+@Component
 public class UserValidator implements Validator {
 
     @Autowired
@@ -14,6 +15,7 @@ public class UserValidator implements Validator {
 
     @Override
     public boolean supports(Class<?> aClass) {
+
         return User.class.equals(aClass);
     }
 
