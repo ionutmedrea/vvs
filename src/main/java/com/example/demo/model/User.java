@@ -1,31 +1,33 @@
 package com.example.demo.model;
 
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
-@Table(name="user")
+@NoArgsConstructor
+@Table(name="users_table")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+    @Column(name="uid")
+    private long id ;
+    @Column(name="username")
     private String username;
+    @Column(name="password")
     private String password;
-    @Transient
-    private String passwordConfirm;
-    @ManyToMany
-    private Set<Role> roles;
+    @Column(name="confirmPassword")
+    private String confirmPassword;
+    @Column(name="roles")
+    private String roles;
 
-    public User() {}
-
-    public Long getId() {
-        return id;
+    public String getRoles() {
+        return roles;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setRoles(String roles) {
+        this.roles = roles;
     }
 
     public String getUsername() {
@@ -43,20 +45,12 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-
-    public String getPasswordConfirm() {
-        return passwordConfirm;
+    public String getConfirmPassword() {
+        return confirmPassword;
     }
 
-    public void setPasswordConfirm(String passwordConfirm) {
-        this.passwordConfirm = passwordConfirm;
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
-    }
 }

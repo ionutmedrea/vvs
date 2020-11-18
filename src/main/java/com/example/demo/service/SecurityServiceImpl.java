@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 public class SecurityServiceImpl implements SecurityService {
     @Autowired
     private AuthenticationManager authenticationManager;
-    @Qualifier("userDetailsServiceImpl")
+    @Qualifier("myUserDetailService")
     @Autowired
     private UserDetailsService userDetailsService;
 
@@ -31,6 +31,7 @@ public class SecurityServiceImpl implements SecurityService {
         return null;
     }
 
+    @SuppressWarnings("MalformedFormatString")
     @Override
     public void autoLogin(String username, String password) {
         UserDetails userDetails = userDetailsService.loadUserByUsername(username);
@@ -39,7 +40,7 @@ public class SecurityServiceImpl implements SecurityService {
         authenticationManager.authenticate(usernamePasswordAuthenticationToken);
         if(usernamePasswordAuthenticationToken.isAuthenticated()){
             SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
-            logger.debug(String.format("Auto login %s succesfully!"),username);
+            logger.debug("Auto login %s succesfully!",username);
         }
 
 
