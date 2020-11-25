@@ -1,22 +1,18 @@
 package com.example.demo.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
-@Table(name = "exams")
+@NoArgsConstructor
+@Table(name = "exams_table")
 public class Exam {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name= "exams_id")
-    private Long id;
+    private Long exams_id;
 
     @Column(name= "session")
     private String session;
@@ -31,12 +27,60 @@ public class Exam {
     @Column(name= "teacher")
     private String teacher;
 
-    public Long getId() {
-        return id;
+
+    public String getSession() {
+        return session;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setSession(String session) {
+        this.session = session;
     }
 
+    public int getYearOfStudy() {
+        return yearOfStudy;
+    }
+
+    public void setYearOfStudy(int yearOfStudy) {
+        this.yearOfStudy = yearOfStudy;
+    }
+
+    public String getFaculty() {
+        return faculty;
+    }
+
+    public void setFaculty(String faculty) {
+        this.faculty = faculty;
+    }
+
+    public String getDomain() {
+        return domain;
+    }
+
+    public void setDomain(String domain) {
+        this.domain = domain;
+    }
+
+    public String getCourse() {
+        return course;
+    }
+
+    public void setCourse(String course) {
+        this.course = course;
+    }
+
+    public String getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(String teacher) {
+        this.teacher = teacher;
+    }
+
+    public Long getExams_id() {
+        return exams_id;
+    }
+
+    public void setExams_id(Long exams_id) {
+        this.exams_id = exams_id;
+    }
 }
