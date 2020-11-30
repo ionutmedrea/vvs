@@ -3,6 +3,7 @@ package com.example.demo.model;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @NoArgsConstructor
@@ -26,7 +27,8 @@ public class Exam {
     private String course;
     @Column(name= "teacher")
     private String teacher;
-
+    @Column(name= "date")
+    private String date;
 
     public String getSession() {
         return session;
@@ -82,5 +84,13 @@ public class Exam {
 
     public void setExams_id(Long exams_id) {
         this.exams_id = exams_id;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }

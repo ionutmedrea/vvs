@@ -1,34 +1,27 @@
-package com.example.demo.model;
+package com.example.demo.dtos;
 
-import lombok.NoArgsConstructor;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
-import javax.persistence.*;
-
-@Entity
-@NoArgsConstructor
-@Table(name="users_table")
-public class User {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="uid")
-    private long id ;
-    @Column(name="username")
+public class UserDto {
+    private long id;
     private String username;
-    @Column(name="password")
     private String password;
-    @Column(name="confirmPassword")
     private String confirmPassword;
-    @Column(name="roles")
     private String roles;
 
-    public String getRoles() {
-        return roles;
+    public UserDto(long id, String username, String password, String confirmPassword, String roles){
+        this.id=id;
+        this.username=username;
+        this.confirmPassword=confirmPassword;
+        this.roles=roles;
+    }
+    public UserDto(){
+
+    }
+    public long getId() {
+        return id;
     }
 
-    public void setRoles(String roles) {
-        this.roles = roles;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -46,6 +39,7 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+
     public String getConfirmPassword() {
         return confirmPassword;
     }
@@ -54,4 +48,11 @@ public class User {
         this.confirmPassword = confirmPassword;
     }
 
+    public String getRoles() {
+        return roles;
+    }
+
+    public void setRoles(String roles) {
+        this.roles = roles;
+    }
 }
