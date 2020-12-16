@@ -20,7 +20,7 @@
             <form th:action="@{/login}" method="post">
 
                 <div th:if="${param.error}">
-                    <div class="alert alert-danger">Invalid username or password!</div>
+                    <div id="alert_invalid_login" class="alert alert-danger">Invalid username or password!</div>
                 </div>
 
                 <div th:if="${param.logout}">
@@ -45,7 +45,7 @@
                 </div>
             </form>
             <div class="form-group">
-                <span>Are you a new user? <a th:href="@{/registration}">Register here</a></span>
+                <span>Are you a new user? <a id="login_register" th:href="@{/registration}">Register here</a></span>
             </div>
         </div>
     </div>

@@ -19,7 +19,7 @@
     <div class = "container">
         <div class="float-right">
             <form th:action="@{/logout}" method="post">
-                <input type="submit"  class="btn btn-primary" value="Log out" />
+                <input id="logout_index" type="submit"  class="btn btn-primary" value="Log out" />
             </form>
         </div>
     </div>
@@ -36,14 +36,14 @@
     </div>
     <div class="container">
         <div class="float-left">
-            <a th:href="@{/showExams}">
+            <a id="welcome-show" th:href="@{/showExams}">
                 <input type="button"  class="btn btn-outline-success" value="Show Exams" />
             </a>
         </div>
         <br>
         <br>
         <div class="float-left ">
-            <a th:href="@{/addExam}">
+            <a id="welcome-add" th:href="@{/addExam}">
                 <input type="button"  class="btn btn-success" value="Add Exam" />
             </a>
         </div>
